@@ -1,5 +1,5 @@
 # statcrawler
-A lightweigh status page agrregator. Status pages we offer are 
+A lightweight status page agrregator. Status pages we offer are 
   Zoom
   GoToAssist
   Egnyte

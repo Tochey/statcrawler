@@ -1,4 +1,4 @@
-export const format = data => {
+const spformat = data => {
     
     return {
         name: data.name,
@@ -13,6 +13,6 @@ export const format = data => {
         }),
         link: data.shortlink
     }
-
-  
 }
+
+module.exports = spformat
