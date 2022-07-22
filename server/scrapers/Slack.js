@@ -11,6 +11,7 @@ const scrapeSlack  = async () => {
 
 const icon = $('img', '.container')
 const status = $('h1', '.container').text()
+
     // const scrapeRss = async () => {
     //     const feed = await axios.get('https://status.slack.com/feed/rss')
     //         .then(e => e.data)
