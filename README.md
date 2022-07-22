@@ -10,3 +10,5 @@ A lightweight status page agrregator. Status pages we offer are
   Adobe
   Slack
   MS365
+  Zendesk 
+  Jamf
