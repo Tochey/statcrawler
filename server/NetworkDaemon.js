@@ -1,4 +1,6 @@
 const axios = require('axios');
+const format  = require('./formatters/SpFormatter');
+const scrapeSlack = require('./scrapers/Slack');
 class NetworkDaemon {
 
 
@@ -7,20 +9,21 @@ class NetworkDaemon {
         this.interval = []
     }
 
-    async fetchZoomData(zoomDataSetter) {
-        let summaryResponse, incidentResponse;
+     async fetchData (serviceUrl , spDataSetter){
+        let summaryResponse, incidentResponse;  
         try {
-            summaryResponse = await axios.get("https://status.zoom.us/api/v2/summary.json")
+            summaryResponse = await axios.get(`${serviceUrl}/api/v2/summary.json`)
                 .then((e) => e.data).then((e) => e.status);
-            incidentResponse = await axios.get("https://status.zoom.us/api/v2/incidents.json")
+            incidentResponse = await axios.get(`${serviceUrl}/api/v2/incidents.json`)
                 .then((e) => e.data).then(e => e.incidents)
         } catch (err) {
             console.log(err)
         }
-        zoomDataSetter(summaryResponse,incidentResponse)
+        if(spDataSetter){
+            spDataSetter(summaryResponse, incidentResponse)
+        }
         return [summaryResponse, incidentResponse]
     }
-
 
     async fetchOfficeData(officeDataSetter) {
         let officeResponse;
@@ -30,21 +33,32 @@ class NetworkDaemon {
         } catch (err) {
             console.log(err)
         }
-
-        officeDataSetter(officeResponse)
-
+    
+        if(officeDataSetter){
+            officeDataSetter(officeResponse)
+        }
+    
+        return officeResponse
+    
     }
 
-
-    async pollData(zoomDataSetter, officeDataSetter) {
-        
-        this.fetchZoomData(zoomDataSetter)
+    async pollData(zoomDataSetter, notionDataSetter, slackDataSetter, egnyteDataSetter, goToDataSetter, officeDataSetter) {
+        console.log('populating')
+        this.fetchData('https://status.zoom.us', zoomDataSetter)
+        this.fetchData('https://status.notion.so', notionDataSetter)
+        scrapeSlack(slackDataSetter)
+        this.fetchData('https://status.egnyte.com', egnyteDataSetter)
+        this.fetchData('https://status.logmeinremotesupport.com', goToDataSetter)
         this.fetchOfficeData(officeDataSetter)
 
         const setIntervalId = setInterval(async () => {
             try {
                 console.log('ping')
-                this.fetchZoomData(zoomDataSetter)
+                this.fetchData('https://status.zoom.us', zoomDataSetter)
+                this.fetchData('https://status.notion.so', notionDataSetter)
+                scrapeSlack(slackDataSetter)
+                this.fetchData('https://status.egnyte.com', egnyteDataSetter)
+                this.fetchData('https://status.logmeinremotesupport.com', goToDataSetter)
                 this.fetchOfficeData(officeDataSetter)
             } catch (err) {
                 console.error(err); // eslint-disable-line no-console
