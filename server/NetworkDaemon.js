@@ -1,4 +1,5 @@
 const axios = require('axios');
+const spformat = require('./formatters/SpFormatter');
 const format  = require('./formatters/SpFormatter');
 const scrapeSlack = require('./scrapers/Slack');
 class NetworkDaemon {
@@ -19,10 +20,19 @@ class NetworkDaemon {
         } catch (err) {
             console.log(err)
         }
-        if(spDataSetter){
-            spDataSetter(summaryResponse, incidentResponse)
+
+        const response  = {
+            summary : summaryResponse,
+            incidents : incidentResponse.map((e) => spformat(e))
         }
-        return [summaryResponse, incidentResponse]
+        if(spDataSetter){
+            spDataSetter(response)
+        }
+
+        return {
+            summary : summaryResponse, 
+            incident : incidentResponse
+        }
     }
 
     async fetchOfficeData(officeDataSetter) {
