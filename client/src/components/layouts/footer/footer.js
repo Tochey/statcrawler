@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {
   FaFacebook,
   FaGithub,
@@ -7,9 +7,10 @@ import {
   FaTwitch,
 } from "react-icons/fa";
 
+
 // import { Link } from 'react-router-dom';
 
-export default function Footer() {
+export default function Footer() {  
   return (
     <footer className="w-full mt-24 py-y px-2 ">
         <div className="border-t border-gray-400">

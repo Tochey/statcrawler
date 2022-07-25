@@ -1,6 +1,5 @@
 const axios = require('axios');
 const spformat = require('./formatters/SpFormatter');
-const format  = require('./formatters/SpFormatter');
 const scrapeSlack = require('./scrapers/Slack');
 class NetworkDaemon {
 
@@ -52,24 +51,26 @@ class NetworkDaemon {
     
     }
 
-    async pollData(zoomDataSetter, notionDataSetter, slackDataSetter, egnyteDataSetter, goToDataSetter, officeDataSetter) {
+    async pollData(zoomDataSetter, notionDataSetter, egnyteDataSetter, goToDataSetter, jamfDataSetter, officeDataSetter, slackDataSetter) {
         console.log('populating')
         this.fetchData('https://status.zoom.us', zoomDataSetter)
         this.fetchData('https://status.notion.so', notionDataSetter)
-        scrapeSlack(slackDataSetter)
         this.fetchData('https://status.egnyte.com', egnyteDataSetter)
         this.fetchData('https://status.logmeinremotesupport.com', goToDataSetter)
+        this.fetchData('https://status.jamf.com/', jamfDataSetter)
         this.fetchOfficeData(officeDataSetter)
-
+        scrapeSlack(slackDataSetter)
+        
         const setIntervalId = setInterval(async () => {
             try {
                 console.log('ping')
                 this.fetchData('https://status.zoom.us', zoomDataSetter)
                 this.fetchData('https://status.notion.so', notionDataSetter)
-                scrapeSlack(slackDataSetter)
                 this.fetchData('https://status.egnyte.com', egnyteDataSetter)
                 this.fetchData('https://status.logmeinremotesupport.com', goToDataSetter)
+                this.fetchData('https://status.jamf.com/', jamfDataSetter)
                 this.fetchOfficeData(officeDataSetter)
+                scrapeSlack(slackDataSetter)
             } catch (err) {
                 console.error(err); // eslint-disable-line no-console
             }
