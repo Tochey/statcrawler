@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 const client = require('../pollServices')
 
-
-
 router.get("/zoom", async (req, res) => {
   client.get("zoomStatus").then((e) => {
     res.json(JSON.parse(e));
@@ -35,6 +33,12 @@ router.get("/goToAssist", async (req, res) => {
 
 router.get("/office", async (req, res) => {
   client.get("officeStatus").then((e) => {
+    res.json(JSON.parse(e));
+  });
+});
+
+router.get("/jamf", async (req, res) => {
+  client.get("jamfStatus").then((e) => {
     res.json(JSON.parse(e));
   });
 });

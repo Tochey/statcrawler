@@ -10,12 +10,7 @@ import {
 
 // import { Link } from 'react-router-dom';
 
-export default function Footer() {
-  useEffect(() => {
-  fetch('http://localhost:8080/services/zoom').then((e) => e.json()).then(e => console.log(e))
-
-  }, [])
-  
+export default function Footer() {  
   return (
     <footer className="w-full mt-24 py-y px-2 ">
         <div className="border-t border-gray-400">
