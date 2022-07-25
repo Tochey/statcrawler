@@ -12,5 +12,5 @@ A lightweight status page agrregator. Status pages we offer are
   MS365
   Zendesk 
   Jamf
-##  DISCLAIMER *WORK IN PROGRESS. New features are committed to this repo every day
+###  DISCLAIMER *WORK IN PROGRESS. New features are committed to this repo every day
 
