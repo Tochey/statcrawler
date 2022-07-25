@@ -3,7 +3,7 @@ const client = redis.createClient();
 const NetworkDaemon = require('./NetworkDaemon')
 client.connect().then(() => console.log("Redis is connected"));
 
-const network = new NetworkDaemon(100);
+const network = new NetworkDaemon(100000);
 
 (function() {
     network.pollData(
@@ -27,5 +27,7 @@ const network = new NetworkDaemon(100);
   }
 )
 })();
+
+module.exports = client
 
 

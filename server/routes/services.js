@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-require('../pollServices')
+const client = require('../pollServices')
+
 
 
 router.get("/zoom", async (req, res) => {
