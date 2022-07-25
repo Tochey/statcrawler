@@ -1,5 +1,5 @@
 # statcrawler
-We aggregate the data from all your favorite services and provide a central UI that displays all of them. Status pages we offer are 
+We aggregate data from all your favorite services and provide a central UI that displays all of them. Status pages we offer are 
 - Zoom
 - GoToAssist
 - Egnyte
