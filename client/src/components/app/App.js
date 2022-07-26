@@ -7,6 +7,12 @@ import Navbar from "../layouts/navbar/navbar";
 import Footer from "../layouts/footer/footer";
 import LandingPage from "../pages/LandingPage";
 import Dashboard from "../pages/Dashboard";
+import ZoomService from "../pages/services/ZoomService";
+import NotionService from "../pages/services/NotionService";
+import SlackService from "../pages/services/SlackService";
+import EgnyteService from "../pages/services/EgnyteService";
+import GoToAssistService from "../pages/services/GoToAssistService";
+import JamfService from "../pages/services/JamfService";
 
 // commented the import statement for the SpServices
 // everything there has to go into its own component
@@ -28,6 +34,15 @@ function App() {
 				<Routes>
 					<Route path="/" element={<LandingPage />} />
 					<Route path="dashboard" element={<Dashboard />} />
+
+					{/*Services*/}
+
+					<Route path="/services/zoom" element={<ZoomService />} />
+					<Route path="/services/notion" element={<NotionService />} />
+					<Route path="/services/slack" element={<SlackService />} />
+					<Route path="/services/egnyte" element={<EgnyteService />} />
+					<Route path="/services/gotoassist" element={<GoToAssistService />} />
+					<Route path="/services/jamf" element={<JamfService />} />
 				</Routes>
 			</BrowserRouter>
 			<Footer />
