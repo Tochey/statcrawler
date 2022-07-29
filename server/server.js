@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const serviceRouter = require('./routes/services')
 const cors = require('cors')
-const PORT = 8080
+const PORT = 8081
 
 app.use(cors({
   origin: '*'
