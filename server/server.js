@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const serviceRouter = require('./routes/services')
 const cors = require('cors')
+<<<<<<< HEAD
 const dbConnection = require('./config/db.config')
 const userRoute = require('./routes/users')
 const authRoute = require('./routes/users.login')
@@ -9,6 +10,9 @@ const authRoute = require('./routes/users.login')
 require('dotenv').config()
 
 const PORT = 8080
+=======
+const PORT = 8081
+>>>>>>> main
 
 app.use(cors({
   origin: '*'
