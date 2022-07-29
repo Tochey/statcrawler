@@ -3,7 +3,6 @@ const spformat = require('./formatters/SpFormatter');
 const scrapeSlack = require('./scrapers/Slack');
 class NetworkDaemon {
 
-
     constructor(refreshRate) {
         this.refreshRate = refreshRate
         this.interval = []
