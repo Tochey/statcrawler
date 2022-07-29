@@ -1,4 +1,6 @@
 import React from "react";
+import {BrowserRouter as Link, Routes, Route } from 'react-router-dom'
+import Login from "../../pages/login";
 
 export default function Navbar() {
   return (
@@ -11,7 +13,12 @@ export default function Navbar() {
             <li className="ml-[60px] hover:text-green-500 cursor-pointer">Services</li>
             <li className="ml-[60px] hover:text-green-500 cursor-pointer">Support</li>
           </ul>
-          <button className="cursor-pointer border mr-2 px-3 py-2 rounded-md bg-green-500 text-white">login</button>
+          <Routes>
+            <Route path="login" element={<Login/>}></Route>
+          </Routes>
+
+          <Link to="/login"  className="cursor-pointer border mr-2 px-3 py-2 rounded-md bg-green-500 text-white">login
+          </Link>
         </nav>
       </header>
     </div>
