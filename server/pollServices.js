@@ -1,3 +1,4 @@
+/*
 const redis = require("redis");
 const client = redis.createClient();
 const NetworkDaemon = require("./NetworkDaemon");
@@ -32,3 +33,4 @@ const network = new NetworkDaemon(1);
 })();
 
 module.exports = client;
+*/
