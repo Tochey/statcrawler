@@ -1,13 +1,13 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const newUserModel = require("../models/users");
-const { validateNewUser } = require("../models/user.validation");
+// const { validateNewUser } = require("../models/user.validation");
 
 router.post("/signup", async (req, res) => {
 
-  //validate user input with joi
-  const { error } = validateNewUser(req.body);
-  if (error) return res.status(400).send({ message: error.details[0].message });
+  // validate user input with joi
+  // const { error } = validateNewUser(req.body);
+  // if (error) return res.status(400).send({ message: error.details[0].message });
 
   //check if email already exists
   const user = await newUserModel.findOne({ email: req.body.email})
