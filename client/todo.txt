@@ -1,0 +1,7 @@
+fix the fonts on page (check bookmarked tweet for recommended fonts)
+terms and conditions docs
+2FA for sign up
+set up recover account options
+make form input width more wider
+fix responsiveness for mobile view
+set password validator for frontend
