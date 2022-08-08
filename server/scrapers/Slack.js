@@ -49,7 +49,6 @@ const scrapeSlack = async (slackDataSetter  ) => {
       return data;
   };
 
-//   scrapeRss();
 
 //validation
 //validate slack image

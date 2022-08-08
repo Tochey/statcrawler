@@ -1,3 +1,4 @@
+//mongo config
 const mongoose = require('mongoose')
 
 module.exports = () => {
