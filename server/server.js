@@ -3,8 +3,8 @@ const app = express();
 const serviceRouter = require('./routes/services')
 const cors = require('cors')
 const dbConnection = require('./config/db.config')
-const userRoute = require('./routes/users.signup')
-const authRoute = require('./routes/users.login')
+const registerRoute = require('./routes/users.signup')
+const loginRoute = require('./routes/users.login')
 require('dotenv').config()
 
 // const PORT = 8080
@@ -18,8 +18,8 @@ app.use(cors({
 dbConnection()
 
 app.use(express.json())
-app.use('/api/v1/user', userRoute)
-app.use('/api/v1/user', authRoute)
+app.use('/api/v1/user', registerRoute)
+app.use('/api/v1/user', loginRoute)
 app.use('/api/v1/services', serviceRouter)
 
 
