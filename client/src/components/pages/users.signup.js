@@ -20,7 +20,7 @@ export default function Register() {
   const handleSignUpSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/v1/users/signup";
+      const url = "http://localhost:8081/api/v1/user/signup";
       const { data: res } = await axios.post(url, data);
       navigate("/login");
       console.log(res.message);
