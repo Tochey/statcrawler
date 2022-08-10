@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Login() {
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -17,7 +17,7 @@ export default function Login() {
       const url = "http://localhost:8081/api/v1/user/login";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.data);
-      navigate('/dashboard')
+      navigate("/dashboard");
       // window.location = "/";
     } catch (error) {
       if (
@@ -35,8 +35,8 @@ export default function Login() {
       {/* div handles the first half */}
       <div className="w-[50%] bg-white">
         <div className="py-4 ">
-        <Link to='/'>
-          <p className="font-bold text-[26px] px-[40px]">StatCrawler</p>
+          <Link to="/">
+            <p className="font-bold text-[26px] px-[40px]">StatCrawler</p>
           </Link>
           <div className="py-[160px] px-[150px]">
             <h2 className="font-semibold text-[30px]">Welcome back</h2>
@@ -92,7 +92,12 @@ export default function Login() {
       </div>
 
       {/* div handles the second half of the div */}
-      <div className="h-screen w-[50%] bg-[#f3f4f8]">hello</div>
+      <div className="h-screen 2xl:h-screen lg:h-screen w-[50%] bg-[#f3f4f8]">
+        <div className="flex justify-center items-center h-full">
+          <div className="w-[300px] h-[300px] bg-green-500 rounded-full"></div>
+        </div>
+        <div className="bg-[#f3f4f8] bg-opacity-25 backdrop-filter backdrop-blur-lg h-[25%] bottom-0 absolute w-[50%] mb-[230px]"></div>
+      </div>
     </div>
   );
 }
