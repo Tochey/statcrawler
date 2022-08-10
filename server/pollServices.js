@@ -1,6 +1,9 @@
 // const client = require('./config/redis.config')
 // const NetworkDaemon = require("./NetworkDaemon");
 // const network = new NetworkDaemon(10);
+// const client = require('./config/redis.config')
+// const NetworkDaemon = require("./NetworkDaemon");
+// const network = new NetworkDaemon(100);
 
 // (function () {
 //   network.pollData(

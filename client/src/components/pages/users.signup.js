@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {Link } from "react-router-dom";
 
 export default function Register() {
   const [data, setData] = useState({
@@ -22,7 +23,7 @@ export default function Register() {
     try {
       const url = "http://localhost:8081/api/v1/user/signup";
       const { data: res } = await axios.post(url, data);
-      navigate("/login");
+      navigate("/dashboard");
       console.log(res.message);
     } catch (error) {
       if (
@@ -39,7 +40,9 @@ export default function Register() {
     <div className="flex justify-between">
       <div className="w-[50%] bg-white">
         <div className="py-4 ">
+        <Link to='/'>
           <p className="font-bold text-[26px] px-[40px]">StatCrawler</p>
+          </Link>
           <div className="py-[100px] px-[150px]">
             <h2 className="font-semibold text-[30px]">Create account</h2>
             <p className="text-[15px] font-semibold text-[#c9cdd2]">

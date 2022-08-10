@@ -1,10 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const navigate = useNavigate()
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -16,7 +17,8 @@ export default function Login() {
       const url = "http://localhost:8081/api/v1/user/login";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.data);
-      window.location = "/";
+      navigate('/dashboard')
+      // window.location = "/";
     } catch (error) {
       if (
         error.response &&
@@ -33,7 +35,9 @@ export default function Login() {
       {/* div handles the first half */}
       <div className="w-[50%] bg-white">
         <div className="py-4 ">
+        <Link to='/'>
           <p className="font-bold text-[26px] px-[40px]">StatCrawler</p>
+          </Link>
           <div className="py-[160px] px-[150px]">
             <h2 className="font-semibold text-[30px]">Welcome back</h2>
             <p className="text-[15px] font-semibold text-[#c9cdd2]">
@@ -76,7 +80,7 @@ export default function Login() {
 
               <p className="pt-4 text-[12px] text-[#c9cdd2]">
                 don't have an account?{" "}
-                <Link to="/register">
+                <Link to="/signup">
                   <span className="font-semibold ml-2 text-green-500">
                     Sign up
                   </span>
