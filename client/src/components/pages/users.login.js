@@ -40,52 +40,68 @@ export default function Login() {
           </Link>
           <div className="py-[160px] px-[150px]">
             <h2 className="font-semibold text-[30px]">Welcome back</h2>
-            <p className="text-[15px] font-semibold text-[#c9cdd2]">
+            <p className="text-[15px] font-semibold text-[#51555a]">
               please enter your login credentials.
             </p>
             <div className="pt-6">
-              <p className="mb-2">Email</p>
               <form onSubmit={handleSubmit}>
-                {/* todo: increase the size of the form inputs */}
+                <label
+                  for="email"
+                  className="block mb-2 font-medium text-gray-900"
+                >
+                  email
+                </label>
                 <input
                   type="email"
                   name="email"
                   onChange={handleChange}
                   required
                   placeholder="enter email"
-                  className="border border-green-500 px-6 py-1 rounded-md"
+                  className="bg-white border border-green-500 rounded-lg text-sm focus:outline-green-500 focus:border-green-500 block w-full p-2.5"
                 />
-                <p className="pt-4 mb-2">Password</p>
-                <input
-                  type="password"
-                  name="password"
-                  required
-                  onChange={handleChange}
-                  placeholder="enter email"
-                  className="border border-green-500 px-6 py-1 rounded-md"
-                />
-                {error && <div>{error}</div>}
-                <Link to="/forgot-password">
-                  <p className="text-[12px] mt-2 font-bold text-green-500">
-                    forgot password?
-                  </p>
-                </Link>
+                <div className="mt-6">
+                  <label
+                    for="password"
+                    className="block mb-2 font-medium text-gray-900"
+                  >
+                    password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    required
+                    onChange={handleChange}
+                    placeholder="enter password"
+                    className="bg-white border border-green-500 rounded-lg text-sm focus:outline-green-500 focus:border-green-500 block w-full p-2.5"
+                  />
+                </div>
+                <div className="mt-1 text-sm">
+                  {error && <div>{error}</div>}
+                </div>
+                <div className="mt-8">
+                  <Link to="/forgot-password">
+                    <p className="text-[12px] mt-2 font-bold text-green-500">
+                      forgot password?
+                    </p>
+                  </Link>
+                </div>
                 <button
                   type="submit"
-                  className="mt-4 text-[15px] font-semibold border rounded-lg px-[100px] text-white py-1 bg-green-500"
+                  className="text-white mt-4 bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-[235px] py-2.5 text-center"
                 >
                   login
                 </button>
               </form>
-
-              <p className="pt-4 text-[12px] text-[#c9cdd2]">
-                don't have an account?{" "}
-                <Link to="/signup">
-                  <span className="font-semibold ml-2 text-green-500">
-                    Sign up
-                  </span>
-                </Link>
-              </p>
+              <div className="flex justify-center w-full">
+                <p className="pt-4 text-[15px] text-[#51555a]">
+                  don't have an account?{" "}
+                  <Link to="/signup">
+                    <span className="font-semibold ml-2 text-green-500">
+                      Sign up
+                    </span>
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -94,7 +110,7 @@ export default function Login() {
       {/* div handles the second half of the div */}
       <div className="h-screen 2xl:h-screen lg:h-screen w-[50%] bg-[#f3f4f8]">
         <div className="flex justify-center items-center h-full">
-          <div className="w-[300px] h-[300px] bg-green-500 rounded-full"></div>
+          <div className="w-[200px] h-[200px] bg-green-500 rounded-full"></div>
         </div>
         <div className="bg-[#f3f4f8] bg-opacity-25 backdrop-filter backdrop-blur-lg h-[25%] bottom-0 absolute w-[50%] mb-[230px]"></div>
       </div>
