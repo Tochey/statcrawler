@@ -45,7 +45,7 @@ export default function Register() {
           </Link>
           <div className="py-[80px] px-[150px]">
             <h2 className="font-semibold text-[30px]">Create account</h2>
-            <p className="text-[15px] font-semibold text-[#c9cdd2]">
+            <p className="text-[15px] font-semibold text-[#51555a]">
               create an account to get access to our all exclusive features
             </p>
             <div className="pt-6">
@@ -129,7 +129,7 @@ export default function Register() {
                     id="remember"
                     type="checkbox"
                     value=""
-                    className="w-5 h-5 ml-[120px] bg-green-500 rounded border border-green-500 focus:ring-3"
+                    className="w-5 h-5 ml-[120px] accent-green-500 bg-white focus:outline-green-500 rounded border focus:border-green-500 focus:ring-3"
                     required=""
                   ></input>
                   <label
