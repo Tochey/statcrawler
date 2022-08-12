@@ -14,7 +14,7 @@ useEffect(() => {
     navigate("/dashboard")
     return
   }
-}, )
+}, [])
 
 //else login
 
