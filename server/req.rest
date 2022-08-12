@@ -1,0 +1,10 @@
+GET http://localhost:8081/dashboard
+
+###
+POST http://localhost:8081/api/v1/user/login
+Content-Type: application/json
+
+{
+    "email" : "jtest@gmail.com",
+    "password" : "tochi123"
+}

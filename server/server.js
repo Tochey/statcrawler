@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express();
+const jwt = require('jsonwebtoken')
 const serviceRouter = require('./routes/services')
 const cors = require('cors')
 const dbConnection = require('./config/db.config')
 const registerRoute = require('./routes/users.signup')
 const loginRoute = require('./routes/users.login')
-require('dotenv').config()
-
-// const PORT = 8080
+const auth = require('./middleware/auth')
+require('dotenv').config();
 
 const PORT = 8081
 
@@ -25,6 +25,11 @@ app.use('/api/v1/services', serviceRouter)
 
 
 app.get("/", async (req, res) => {
+  res.end()
+});
+
+app.get("/dashboard", auth, async (req, res) => {
+  res.send({message : `Welcome back ${req.user.email}`})
   res.end()
 });
 
