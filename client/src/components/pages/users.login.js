@@ -86,10 +86,10 @@ useEffect(() => {
                     className="bg-white border border-green-500 rounded-lg text-sm focus:outline-green-500 focus:border-green-500 block w-full p-2.5"
                   />
                 </div>
-                <div className="mt-1 text-sm">
+                <div className="mt-3 text-sm text-red-500">
                   {error && <div>{error}</div>}
                 </div>
-                <div className="mt-8">
+                <div className="mt-4">
                   <Link to="/forgot-password">
                     <p className="text-[12px] mt-2 font-bold text-green-500">
                       forgot password?
