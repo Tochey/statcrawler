@@ -12,7 +12,7 @@ import {
 
 export default function Footer() {  
   return (
-    <footer className="w-full mt-24 py-y px-2 ">
+    <footer className="w-full h-full inset-x-0 bottom-0 ">
         <div className="border-t border-gray-400">
         <h2 className="px-[50px] text-green-500  font-bold text-[25px]">StatCrawler</h2>
       <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-6 py-8">
