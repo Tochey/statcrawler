@@ -2,14 +2,16 @@ const router = require("express").Router();
 const jwt = require('jsonwebtoken')
 const bcrypt = require("bcrypt");
 const newUserModel = require("../models/users");
-// const { validateUserLogin } = require("../models/user.validation");
+const { userLoginValidation, } = require('../models/user.validator')
+const auth = require('../middleware/auth')
+
 
 router.post("/login", async (req, res) => {
+  const { email, password } = req.body
+  const { error } = userLoginValidation(req.body);
+  if (error) return res.status(400).send({ message: error.details[0].message });
 
-  // const { error } = validateUserLogin(req.body);
-  // if (error) return res.status(400).send({ message: error.details[0].message });
-
-  const user = await newUserModel.findOne({ email: req.body.email });
+  const user = await newUserModel.findOne({ email: email });
   //checks if the user exists
   if (!user)
     return res
@@ -18,17 +20,22 @@ router.post("/login", async (req, res) => {
 
   //check if the password is correct or not
   const checkPasswordValidity = await bcrypt.compare(
-    req.body.password,
+    password,
     user.password
   );
+
   if (!checkPasswordValidity)
     return res
       .status(401)
       .send({ message: "email or password does not exits, try again" });
 
-  //create json web token
-  const token = jwt.sign({_id: user._id}, process.env.TOKEN_KEY)
-  res.header('json-token', token).send( token);
+  //create json web token if authenticated and send it back to client in header where it is stored in localStorage ( might not be best practice )
+  const token = jwt.sign({ _id: user._id, email }, process.env.TOKEN_KEY, {
+    expiresIn: "20s",
+  })
+
+
+  res.header('Authorization', token).send(token)
 });
 
 module.exports = router;

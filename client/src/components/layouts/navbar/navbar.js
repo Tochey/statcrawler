@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Login from "../../pages/login";
+//import Login from "../../pages/login";
 
 export default function Navbar() {
   return (
     <div>
       <header className="h-[85px] fixed w-full z-10 shadow-lg backdrop-blur-[100px]">
         <nav className="flex justify-between items-center w-full h-full px-[40px]">
+        <Link to='/'>
           <p className="font-bold text-[26px] px-[40px]">StatCrawler</p>
+          </Link>
           <ul className="flex justify-center font-semibold">
             <li className="ml-[60px] hover:text-green-500 cursor-pointer">Pricing</li>
             <li className="ml-[60px] hover:text-green-500 cursor-pointer">Services</li>

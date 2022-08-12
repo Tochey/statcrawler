@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const client = require('../pollServices')
+const client = require('../config/redis.config')
+require('../pollServices')
 
 router.get("/zoom", async (req, res) => {
   client.get("zoomStatus").then((e) => {
