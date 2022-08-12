@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function Register() {
@@ -23,8 +23,7 @@ export default function Register() {
     try {
       const url = "http://localhost:8081/api/v1/user/signup";
       const { data: res } = await axios.post(url, data);
-      navigate("/dashboard");
-      console.log(res.message);
+      navigate("/login");
     } catch (error) {
       if (
         error.response &&

@@ -1,4 +1,4 @@
-// //redis config
+//redis config
 // const redis = require("redis");
 // const client = redis.createClient();
 

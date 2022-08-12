@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -6,6 +6,17 @@ export default function Login() {
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+
+useEffect(() => {
+ //if token is present already, redirect user to dashboard
+  if( localStorage.getItem("token")){
+    navigate("/dashboard")
+    return
+  }
+}, [])
+
+//else login
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -16,9 +27,9 @@ export default function Login() {
     try {
       const url = "http://localhost:8081/api/v1/user/login";
       const { data: res } = await axios.post(url, data);
-      localStorage.setItem("token", res.data);
+      //store token in localStorage 
+      localStorage.setItem("token", res);
       navigate("/dashboard");
-      // window.location = "/";
     } catch (error) {
       if (
         error.response &&
