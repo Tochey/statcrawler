@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <div>
-      <header className="h-[85px] fixed w-full z-10 shadow-lg backdrop-blur-[100px]">
+      <header className="h-[70px] fixed w-full z-10 shadow-lg backdrop-blur-[100px]">
         <nav className="flex justify-between items-center w-full h-full px-[40px]">
         <Link to='/'>
           <p className="font-bold text-[26px] px-[40px]">StatCrawler</p>
