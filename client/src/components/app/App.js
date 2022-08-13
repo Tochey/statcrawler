@@ -6,6 +6,8 @@ import Dashboard from '../pages/Dashboard'
 import Login from '../pages/users.login'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "../layouts/layout";
+import EgnyteData from '../pages/services/Egnyte'
+
 
 
 
@@ -20,6 +22,7 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/signup" element={<Signup/>}  />
+          <Route exact path="/dashboard/egnyte" element={<EgnyteData/>}  />
         </Routes>
         </Layout>
       </Router>
