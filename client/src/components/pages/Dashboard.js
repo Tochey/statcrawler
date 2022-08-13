@@ -10,22 +10,26 @@ const serviceCards = [
   {
     logo: <img src={EgnyteLogo} width={150} alt="egnyte" />,
     status: "",
-    recentEvent: ""
+    recentEvent: "",
+    link: ''
   },
   {
     logo: <img src={GotoLogo} width={150} alt="egnyte" />,
     status: "",
-    recentEvent: ""
+    recentEvent: "",
+    link: ''
   },
   {
     logo: <img src={ZoomLogo} width={150} alt="egnyte" />,
     status: "",
-    recentEvent: ""
+    recentEvent: "",
+    link: ''
   },
   {
     logo: <img src={EgnyteLogo} width={150} alt="egnyte" />,
     status: "",
-    recentEvent: ""
+    recentEvent: "",
+    link: ''
   }
 ]
 

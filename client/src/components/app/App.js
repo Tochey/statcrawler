@@ -9,8 +9,6 @@ import Layout from "../layouts/layout";
 import EgnyteData from '../pages/services/Egnyte'
 
 
-
-
 function App() {
 
   return (
