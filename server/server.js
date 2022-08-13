@@ -29,7 +29,7 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/dashboard", auth, async (req, res) => {
-  res.send({message : `Welcome back ${req.user.email}`})
+  res.send({message : `${req.user.email}`})
   res.end()
 });
 
