@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import getUserInfo from "../../utilities/decodeJwt";
 
 export default function Login() {
   const [data, setData] = useState({ email: "", password: "" });
@@ -8,15 +9,16 @@ export default function Login() {
   const navigate = useNavigate();
 
 
-useEffect(() => {
- //if token is present already, redirect user to dashboard
-  if( localStorage.getItem("token")){
-    navigate("/dashboard")
-    return
-  }
-}, [])
-
-//else login
+  useEffect(() => {
+    const currentDate = new Date()
+    const user = getUserInfo();
+    console.log(user)
+    if (user && user.exp * 1000 > currentDate.getTime()) {
+       navigate("/dashboard")
+    } else {
+      return navigate("/login")
+    }
+  }, [])
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -27,8 +29,10 @@ useEffect(() => {
     try {
       const url = "http://localhost:8081/api/v1/user/login";
       const { data: res } = await axios.post(url, data);
+      const { accessToken, refreshToken } = res
       //store token in localStorage 
-      localStorage.setItem("token", res);
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
       navigate("/dashboard");
     } catch (error) {
       if (
@@ -86,10 +90,10 @@ useEffect(() => {
                     className="bg-white border border-green-500 rounded-lg text-sm focus:outline-green-500 focus:border-green-500 block w-full p-2.5"
                   />
                 </div>
-                <div className="mt-1 text-sm">
+                <div className="mt-3 text-sm text-red-500">
                   {error && <div>{error}</div>}
                 </div>
-                <div className="mt-8">
+                <div className="mt-4">
                   <Link to="/forgot-password">
                     <p className="text-[12px] mt-2 font-bold text-green-500">
                       forgot password?
