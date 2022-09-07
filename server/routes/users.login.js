@@ -32,15 +32,6 @@ router.post("/login", async (req, res) => {
       .send({ message: "email or password does not exits, try again" });
 
   //create json web token if authenticated and send it back to client in header where it is stored in localStorage ( might not be best practice )
-<<<<<<< HEAD
-  const token = jwt.sign({ _id: user._id, email }, process.env.TOKEN_KEY, {
-    expiresIn: "2h", //refactored for the sake of developing the dashboard page
-  })
-=======
-const accessToken = generateAccessToken(user._id, user.email)
-const refreshToken = generateRefreshToken(user._id, user.email)
-client.set(`${user.email}`, refreshToken)
->>>>>>> df28bec886e683712d331f9138a6fe90778f3f2a
 
   res.header('Authorization', accessToken).send({accessToken : accessToken, refreshToken : refreshToken})
 });
