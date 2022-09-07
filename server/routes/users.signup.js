@@ -29,17 +29,6 @@ router.post("/signup", async (req, res) => {
     password: hashPassword,
   });
 
-
-  //create jwt token
-  // const token = jwt.sign(
-  //   { user_id: createUser._id, email },
-  //   process.env.TOKEN_KEY,
-  //   {
-  //     expiresIn: "2h",
-  //   }
-  // );
-
-  // createUser.token = token
   console.log(createUser)
   try {
     const saveNewUser = await createUser.save();

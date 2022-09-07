@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { FaUserCircle } from 'react-icons/fa'
 import EgnyteLogo from '../pages/assets/images/egnyte.png'
 import GotoLogo from '../pages/assets/images/gotoassistance.png'
 import ZoomLogo from '../pages/assets/images/zoom.png'
 import DashboardCard from "./dashboard.cards";
+import getUserInfo from "../../utilities/decodeJwt";
 
 const serviceCards = [
   {
@@ -34,34 +35,23 @@ const serviceCards = [
 ]
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-  const [userEmail, setUserEmail] = useState();
-
-  // get token from localStorage stored from user login
-  const token = localStorage.getItem("token");
+  const [user, setUser] = useState({})
+  const navigate = useNavigate()
 
   useEffect(() => {
+    const currentDate = new Date()
+    if (getUserInfo() && getUserInfo().exp * 1000 < currentDate.getTime() || !getUserInfo()) {
+      return navigate('/login')
+    } else {
+      setUser(getUserInfo())
+    }
 
-    // request dashboard endpoint with token from localStorage
-    fetch("http://localhost:8081/dashboard", {
-      headers: {
-        Authorization: token,
-      },
-    })
-      .then((e) => {
-        // if denied the token is no longer valid.... redirect user to login page(this is where refresh tokens come into play)
-        if (e.status > 400) {
-          localStorage.removeItem("token");
-          return navigate("/login");
-        } else return e.json();
-      })
-      .then((e) => e && setUserEmail(e.message));
-  }, );
+  }, [])
 
   return (
     <div className="py-[120px] px-[100px] w-full h-full">
       <div className="absolute flex right-[50px] cursor-pointer items-center">
-        <p className="text-green-500 font-medium cursor-pointer mr-2">{userEmail}</p>
+        <p className="text-green-500 font-medium cursor-pointer mr-2">{user?.email}</p>
         <FaUserCircle size={20} className="text-green-500"></FaUserCircle>
       </div>
 
@@ -71,6 +61,13 @@ const Dashboard = () => {
             <DashboardCard {...v} key={index} name={v.logo} />
           ))}
         </div>
+         {/* put this button in navbar  */}
+        <button style={{color: "green", fontWeight: "bold"}} onClick={((e) => {
+          localStorage.clear()
+          navigate('/login')
+        })}>
+          Logout
+        </button>
       </div>
     </div>
   );

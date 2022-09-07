@@ -1,7 +1,7 @@
-//redis config
-// const redis = require("redis");
-// const client = redis.createClient();
+// redis config
+const redis = require("redis");
+const client = redis.createClient();
 
-// client.connect().then(() => console.log("Redis is connected"));
+client.connect().then(() => console.log("Redis is connected"));
 
-// module.exports = client
+module.exports = client

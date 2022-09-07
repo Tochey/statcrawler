@@ -16,7 +16,7 @@ export default function Navbar() {
             <li className="ml-[60px] hover:text-green-500 cursor-pointer">Support</li>
           </ul>
           <Link to='/login'>
-            <p className="cursor-pointer border mr-2 px-3 py-2 rounded-md bg-green-500 text-white">login
+            <p className="cursor-pointer border mr-2 px-3 py-2 rounded-md bg-green-500 text-white" id="login-btn">login
             </p>
           </Link>
         </nav>
