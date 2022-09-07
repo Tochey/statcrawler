@@ -31,7 +31,7 @@ router.post("/login", async (req, res) => {
 
   //create json web token if authenticated and send it back to client in header where it is stored in localStorage ( might not be best practice )
   const token = jwt.sign({ _id: user._id, email }, process.env.TOKEN_KEY, {
-    expiresIn: "2h", //refactor for the sake of developing the dashboard page
+    expiresIn: "2h", //refactored for the sake of developing the dashboard page
   })
 
   res.header('Authorization', token).send(token)
