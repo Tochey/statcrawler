@@ -8,7 +8,6 @@ export default function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-
   useEffect(() => {
     const currentDate = new Date()
     const user = getUserInfo();
