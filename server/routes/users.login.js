@@ -31,7 +31,8 @@ router.post("/login", async (req, res) => {
       .status(401)
       .send({ message: "email or password does not exits, try again" });
       
-  //create json web token if authenticated and send it back to client in header where it is stored in localStorage ( might not be best practice )
+  // create json web token if authenticated and send it back to client in header where it is stored in localStorage ( might not be best practice )
+  // not feasible, since access token expires. An old user might decide to login, recall access token has expiration date, how'd you handle that scenario?
   res.header('Authorization', accessToken).send({accessToken : accessToken, refreshToken : refreshToken})
 });
 
