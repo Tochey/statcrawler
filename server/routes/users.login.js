@@ -1,10 +1,10 @@
 const router = require("express").Router();
-// const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 const bcrypt = require("bcrypt");
 const newUserModel = require("../models/users");
 const { userLoginValidation, } = require('../models/user.validator');
-// const {generateAccessToken} = require("../utilities/tokenGeneration");
-// const { generateRefreshToken } = require('../utilities/tokenGeneration');
+const {generateAccessToken} = require("../utilities/tokenGeneration");
+const { generateRefreshToken } = require('../utilities/tokenGeneration');
 const client = require("../config/redis.config");
 
 
@@ -30,9 +30,12 @@ router.post("/login", async (req, res) => {
     return res
       .status(401)
       .send({ message: "email or password does not exits, try again" });
-      
-  // create json web token if authenticated and send it back to client in header where it is stored in localStorage ( might not be best practice )
-  // not feasible, since access token expires. An old user might decide to login, recall access token has expiration date, how'd you handle that scenario?
+
+  //create json web token if authenticated and send it back to client in header where it is stored in localStorage ( might not be best practice )
+const accessToken = generateAccessToken(user._id, user.email)
+const refreshToken = generateRefreshToken(user._id, user.email)
+client.set(`${user.email}`, refreshToken)
+
   res.header('Authorization', accessToken).send({accessToken : accessToken, refreshToken : refreshToken})
 });
 
