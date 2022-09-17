@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaUserCircle } from 'react-icons/fa'
 import EgnyteLogo from '../pages/assets/images/egnyte.png'
 import GotoLogo from '../pages/assets/images/gotoassistance.png'
@@ -40,12 +40,12 @@ const Dashboard = () => {
 
   useEffect(() => {
     const currentDate = new Date()
-    if (getUserInfo() && getUserInfo().exp * 1000 < currentDate.getTime() || !getUserInfo()) {
+    if ((getUserInfo() && getUserInfo)().exp * 1000 < currentDate.getTime() || !getUserInfo()) {
       return navigate('/login')
     } else {
       setUser(getUserInfo())
     }
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
