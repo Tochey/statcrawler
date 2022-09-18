@@ -22,6 +22,7 @@ export default function Register() {
     e.preventDefault();
     try {
       const url = "http://localhost:8081/api/v1/user/signup";
+      // eslint-disable-next-line no-unused-vars
       const { data: res } = await axios.post(url, data);
       navigate("/login");
     } catch (error) {
