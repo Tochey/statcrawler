@@ -8,8 +8,15 @@ import Notion from '../pages/assets/images/notion.png'
 import Slack from '../pages/assets/images/slack.png'
 import DashboardCard from "./dashboard.cards";
 import Google_Cloud from '../pages/assets/images/google-cloud.png'
-import EgnyteDataModal from "./services-modal/Egnyte";
 import getUserInfo from "../../utilities/decodeJwt";
+import EgnyteModal from "./modals/EgnyteModal";
+import GoogleCloudModal from "./modals/Google.cloudModal";
+import JamfModal from "./modals/JamfModal";
+import RemoteModal from "./modals/LogMeInRemoteModal";
+import NotionModal from "./modals/NotionModal";
+import SlackModal from "./modals/slackModal";
+import ZoomModal from "./modals/ZoomModal";
+import GotoModal from "./modals/GotoModal";
 
 const serviceCards = [
   {
@@ -17,49 +24,57 @@ const serviceCards = [
     status: "",
     recentEvent: "",
     link: '',
-    modal: <EgnyteDataModal/>
+    modal: <EgnyteModal/>
   },
   {
     logo: <img src={GotoLogo} width={150} alt="egnyte" />,
     status: "",
     recentEvent: "",
-    link: ''
+    link: '',
+    modal: <GotoModal/>
+    
   },
   {
     logo: <img src={ZoomLogo} width={150} alt="egnyte" />,
     status: "",
     recentEvent: "",
-    link: ''
+    link: '',
+    modal: <ZoomModal/>
   },
   {
     logo: <img src={EgnyteLogo} width={150} alt="egnyte" />,
     status: "",
     recentEvent: "",
-    link: ''
+    link: '',
+    modal: <RemoteModal/>
   },
   {
     logo: <img src={EgnyteLogo} width={150} alt="egnyte" />,
     status: "",
     recentEvent: "",
-    link: ''
+    link: '',
+    modal: <JamfModal/>
   },
   {
     logo: <img src={Notion} width={37} alt="egnyte" />,
     status: "",
     recentEvent: "",
-    link: ''
+    link: '',
+    modal: <NotionModal/>
   },
   {
     logo: <img src={Slack} width={37} alt="egnyte" />,
     status: "",
     recentEvent: "",
-    link: ''
+    link: '',
+    modal: <SlackModal/>
   },
   {
     logo: <img src={Google_Cloud} width={37} alt="egnyte" />,
     status: "",
     recentEvent: "",
-    link: ''
+    link: '',
+    modal: <GoogleCloudModal/>
   }
 ]
 
@@ -91,6 +106,7 @@ const Dashboard = () => {
             Logout
           </button>
         </div>
+        
       </div>
 
       <div className="h-full mt-[100px]">
