@@ -6,7 +6,7 @@ import Dashboard from '../pages/Dashboard'
 import Login from '../pages/users.login'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "../layouts/layout";
-import EgnyteData from '../pages/services/Egnyte'
+import EgnyteData from '../pages/services-modal/Egnyte'
 
 
 function App() {
