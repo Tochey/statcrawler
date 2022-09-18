@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "aws" : "node aws-test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^15.0.3",
+    "aws-sdk": "^2.1194.0",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "cheerio": "^1.0.0-rc.12",
@@ -20,7 +22,8 @@
     "joi-password-complexity": "^5.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.0",
-    "redis": "^4.2.0"
+    "redis": "^4.2.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.19",

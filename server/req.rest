@@ -27,3 +27,30 @@ Content-Type: application/json
     "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZjdmNzc3ZjI3YjljNjU4NGMwYzU1NCIsImVtYWlsIjoidHRlc3RAZ21haWwuY29tIiwiaWF0IjoxNjYwNDQxNzk3fQ.ZzNNlq4mrCoSj7b6ZVIgAKZQA0RpGp75TvgGsUa7unI",
     "email" : "ttest@gmail.com"
 }
+
+
+###
+GET http://localhost:8081/api/v1/services/slack
+
+###
+GET http://localhost:8081/api/v1/services/notion
+
+###
+GET http://localhost:8081/api/v1/services/office
+
+###
+GET http://localhost:8081/api/v1/services/egnyte
+
+
+###
+GET http://localhost:8081/api/v1/services/gotoassist
+###
+GET http://localhost:8081/api/v1/services/zoom
+###
+GET http://localhost:8081/api/v1/services/jamf
+
+###
+GET https://status.zoom.us/api/v2/summary.json
+Content-Type: application/json
+
+
