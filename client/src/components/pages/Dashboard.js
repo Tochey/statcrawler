@@ -10,9 +10,8 @@ import DashboardCard from "./dashboard.cards";
 import Google_Cloud from '../pages/assets/images/google-cloud.png'
 import getUserInfo from "../../utilities/decodeJwt";
 import EgnyteModal from "./modals/EgnyteModal";
-import GoogleCloudModal from "./modals/Google.cloudModal";
+import OfficeModal from "./modals/OfficeModal";
 import JamfModal from "./modals/JamfModal";
-import RemoteModal from "./modals/LogMeInRemoteModal";
 import NotionModal from "./modals/NotionModal";
 import SlackModal from "./modals/slackModal";
 import ZoomModal from "./modals/ZoomModal";
@@ -41,13 +40,7 @@ const serviceCards = [
     link: '',
     modal: <ZoomModal/>
   },
-  {
-    logo: <img src={EgnyteLogo} width={150} alt="egnyte" />,
-    status: "",
-    recentEvent: "",
-    link: '',
-    modal: <RemoteModal/>
-  },
+
   {
     logo: <img src={EgnyteLogo} width={150} alt="egnyte" />,
     status: "",
@@ -74,7 +67,7 @@ const serviceCards = [
     status: "",
     recentEvent: "",
     link: '',
-    modal: <GoogleCloudModal/>
+    modal: <OfficeModal/>
   }
 ]
 
@@ -117,8 +110,6 @@ const Dashboard = () => {
         </div> 
       </div>
     </div>
-
-    // todo: make modal button for each service
   );
 };
 
