@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react'
 
-export default function SlackData(){
-
-    const [slack, setSlack] = useState(false)
-    async function getSlackData (){
-        const res = await fetch('http://localhost/api/v1/slack')
+export default function OfficeData(){
+    const [office, setOffice] = useState(false)
+    async function getOfficeData(){
+        const res = await fetch('http://localhost:8081/api/v1/services/office')
         const req = await res.json()
-        setSlack(req.incidents)
+        setOffice(req.incidents)
     }
     useEffect(() => {
-        getSlackData()
+        getOfficeData()
     }, [])
     return(
         <div className='py-[120px] px-[100px] w-full h-full'>
             <div>
-                {slack.map(incident => {
+                {office.map(incident => {
                     return(
                         <div key={incident.date}>
                             <div>{incident.date}</div>
@@ -26,7 +25,3 @@ export default function SlackData(){
         </div>
     )
 }
-
-// {incident.title}
-
-// todo: remember that the api returns name, date and title
