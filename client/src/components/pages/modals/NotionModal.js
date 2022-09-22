@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import NotionService from "../services/Notion";
 
 // carries the parent modal properties
 export default function NotionModal() {
@@ -35,7 +36,7 @@ export default function NotionModal() {
                 </div>
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                  include service status content here
+                  <NotionService/>
                   </p>
                 </div>
                 {/*footer*/}

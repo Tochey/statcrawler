@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import GotoAssistData from "../services/GotoAssist";
 
 // todo: import services into the body content
 // carries the parent modal properties
@@ -36,7 +37,7 @@ export default function GotoModal() {
                 </div>
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                  include service status content here
+                  <GotoAssistData/>
                   </p>
                 </div>
                 {/*footer*/}

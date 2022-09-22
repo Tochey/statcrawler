@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // carries the parent modal properties
-export default function RemoteModal() {
+export default function OfficeModal() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -35,7 +35,7 @@ export default function RemoteModal() {
                 </div>
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                  include service status content here
+                    include service status content here
                   </p>
                 </div>
                 {/*footer*/}
