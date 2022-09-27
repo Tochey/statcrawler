@@ -22,7 +22,7 @@ dbConnection()
 app.use(express.json())
 app.use('/api/v1/user', registerRoute)
 app.use('/api/v1/user', loginRoute)
-//app.use('/api/v1/services', serviceRouter)
+app.use('/api/v1/services', serviceRouter)
 
 app.delete('/logout', async (req, res) => {
 await client.del(req.body.email)  
