@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import NotionService from "../services/Notion";
 
 // carries the parent modal properties
 export default function NotionModal() {
@@ -23,7 +24,7 @@ export default function NotionModal() {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/* modal header */}
                 <div className="flex items-start justify-between p-5 border-b border-slate-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">Include title here</h3>
+                  <h3 className="text-lg flex justify-center font-semibold">Notion Service Status</h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     onClick={() => modalOpen(false)}
@@ -35,7 +36,7 @@ export default function NotionModal() {
                 </div>
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                  include service status content here
+                  <NotionService/>
                   </p>
                 </div>
                 {/*footer*/}
