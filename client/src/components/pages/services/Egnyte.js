@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react'
 
-export default function EgnyteData(){
+export default function EgnyteService(){
 
     //getting the data
     const [egnyte, setEgnyte] = useState([])
@@ -9,7 +9,7 @@ export default function EgnyteData(){
         const req = await res.json()
         setEgnyte(req.incidents)
     }
-    console.log(egnyte)
+    // console.log(egnyte)
     useEffect(() => {
         getEgnyteServiceData()
     }, [])

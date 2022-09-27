@@ -3,6 +3,16 @@ const router = express.Router();
 const client = require('../config/redis.config')
 require('../pollServices')
 
+
+// todo: add google cloud
+// todo: add LogMeInRemote
+// todo: add AWS
+// todo: add Druva
+// todo: add Adobe
+// todo: add Zendesk
+// todo: add MS365
+// todo: add Mimecast
+
 router.get("/zoom", async (req, res) => {
   await client.get("zoomStatus").then((e) => {
     res.json(JSON.parse(e));
@@ -26,6 +36,7 @@ router.get("/egnyte", async (req, res) => {
     res.json(JSON.parse(e));
   });
 });
+
 router.get("/goToAssist", async (req, res) => {
   await client.get("goToAssistStatus").then((e) => {
     res.json(JSON.parse(e));

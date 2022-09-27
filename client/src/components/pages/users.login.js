@@ -8,7 +8,6 @@ export default function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-
   useEffect(() => {
     const currentDate = new Date()
     const user = getUserInfo();
@@ -18,6 +17,7 @@ export default function Login() {
     } else {
       return navigate("/login")
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleChange = ({ currentTarget: input }) => {

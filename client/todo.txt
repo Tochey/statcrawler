@@ -8,3 +8,6 @@ GoToAssist
 Notion
 logmeinremotesupport
 jamf
+
+
+Ideea around the application, the
