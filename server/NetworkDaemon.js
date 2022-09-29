@@ -1,5 +1,6 @@
 const axios = require('axios');
-const spformat = require('./formatters/SpFormatter');
+const spformat = require('./utilities/formatters/SpFormatter')
+// const spformat = require('./formatters/SpFormatter');
 const scrapeSlack = require('./scrapers/Slack');
 class NetworkDaemon {
 
