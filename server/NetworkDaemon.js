@@ -75,7 +75,7 @@ class NetworkDaemon {
                 console.error(err); // eslint-disable-line no-console
             }
         }, this.refreshRate * 1000);
-
+        
         this.interval.push(setIntervalId);
     }
 
