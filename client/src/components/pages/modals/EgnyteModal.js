@@ -18,7 +18,7 @@ export default function EgnyteModal() {
       {modalOpen ? (
         <>
           {/* the modal box */}
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+          <div className="justify-center items-center flex overflow-x-auto h-full overflow-y-auto fixed inset-0 z-50">
             <div className="relative w-auto mx-auto max-w-3xl">
               {/* content body */}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
@@ -58,3 +58,8 @@ export default function EgnyteModal() {
     </div>
   );
 }
+
+// todo: apply filter if applicable
+// todo: apply search if applicable
+// todo: apply pagination if applicable
+// todo: optimize view port to show recent pulls first
