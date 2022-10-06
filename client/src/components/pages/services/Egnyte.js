@@ -84,7 +84,6 @@ export default function EgnyteService() {
                           <td className="px-4 py-3 text-sm text-gray-500 whitespace-nowrap">
                             {incident.name}
                           </td>
-                          <td>{incident.time}</td>
                         </tr>
                       );
                     })
