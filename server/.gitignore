@@ -1,0 +1,11 @@
+/node_modules
+#server
+server/.env
+server/package-lock.json
+server/node_modules
+
+/.vscode
+#client
+client/.env
+client/package-lock.json
+client/node_modules
