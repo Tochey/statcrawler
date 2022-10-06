@@ -1,5 +1,6 @@
 const axios = require('axios');
-const spformat = require('./formatters/SpFormatter');
+const spformat = require('./utilities/formatters/SpFormatter')
+// const spformat = require('./formatters/SpFormatter');
 const scrapeSlack = require('./scrapers/Slack');
 class NetworkDaemon {
 
@@ -21,7 +22,7 @@ class NetworkDaemon {
 
         const response  = {
             summary : summaryResponse,
-            incidents : incidentResponse.map((e) => spformat(e))
+            incidents : incidentResponse?.map((e) => spformat(e))
         }
         if(spDataSetter){
             spDataSetter(response)
@@ -74,7 +75,7 @@ class NetworkDaemon {
                 console.error(err); // eslint-disable-line no-console
             }
         }, this.refreshRate * 1000);
-
+        
         this.interval.push(setIntervalId);
     }
 

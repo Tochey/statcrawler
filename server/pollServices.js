@@ -1,7 +1,7 @@
-const client = require('./config/redis.config')
+const client = require('./config/redis.config');
 const NetworkDaemon = require("./NetworkDaemon");
-const network = new NetworkDaemon(10);
-// const network = new NetworkDaemon(100)
+// const network = new NetworkDaemon(10);
+const network = new NetworkDaemon(100);
 
 (function () {
   network.pollData(
@@ -18,7 +18,7 @@ const network = new NetworkDaemon(10);
       client.set("goToAssistStatus", JSON.stringify(goToAssist));
     },
     (jamf) => {
-      client.set("jamfStatus", JSON.stringify(jamf))
+      client.set("jamfStatus", JSON.stringify(jamf));
     },
     (office) => {
       client.set("officeStatus", JSON.stringify(office));
@@ -26,6 +26,5 @@ const network = new NetworkDaemon(10);
     (slack) => {
       client.set("slackStatus", JSON.stringify(slack));
     }
-  )
+  );
 })();
-
