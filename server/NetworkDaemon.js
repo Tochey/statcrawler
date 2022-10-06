@@ -36,11 +36,11 @@ class NetworkDaemon {
             spDataSetter(response);
         }
         //send out notifications
-        if (summaryResponse.status.description !== "All Systems Operational") {
-            publishMessage(
-                `${name} seems to be having issues see here: ${summaryResponse.description}`
-            );
-        }
+        // if (summaryResponse.status.description !== "All Systems Operational") {
+        //     publishMessage(
+        //         `${name} seems to be having issues see here: ${summaryResponse.description}`
+        //     );
+        // }
 
         return {
             summary: summaryResponse,
