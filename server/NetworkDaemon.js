@@ -22,7 +22,7 @@ class NetworkDaemon {
 
         const response  = {
             summary : summaryResponse,
-            incidents : incidentResponse.map((e) => spformat(e))
+            incidents : incidentResponse?.map((e) => spformat(e))
         }
         if(spDataSetter){
             spDataSetter(response)
