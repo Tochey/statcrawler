@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react'
-import { BiFilter } from 'react-icons/bi'
+// import { BiFilter } from 'react-icons/bi'
 
 export default function EgnyteService(){
     //getting the data
@@ -37,14 +37,14 @@ export default function EgnyteService(){
                     </div> */}
                     <div className='p-1.5 w-full inline-block align-middle'>
                         <div className='overflow-hidden border rounded-md'>
-                            <table className='min-w-full divide-y divide-gray-200'>
+                            <table className='min-w-full divide-y table-auto divide-gray-200'>
                                 <thead className='bg-gray-50'>
                                     <tr>
-                                        <th className='py-3 px-[30px] text-sm font-bold border-r text-left text-gray-500'>Date</th>
-                                        <th className='py-3 px-[30px] text-sm font-bold text-left text-gray-500'>Name</th>
+                                        <th className='py-3 flex justify-center text-sm font-bold border-r text-gray-500'>Date</th>
+                                        <th className='px-[150px] text-sm font-bold text-left text-gray-500'>Name</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody className='divide-y divide-gray-300'>
                                    {egnyte.map(incident => {
                                     return(
                                         <tr key={incident.date}>
