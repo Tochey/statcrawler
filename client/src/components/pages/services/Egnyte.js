@@ -1,9 +1,14 @@
 import React, { useState, useEffect} from 'react'
+import ModalPagination from '../../../utilities/pagination';
 // import { BiFilter } from 'react-icons/bi'
 
 export default function EgnyteService(){
     //getting the data
     const [egnyte, setEgnyte] = useState([])
+    const [dataPerPage] = useState(10); // sets the service data per page
+    const [currentModalPage, setCurrentModalPage] = useState(1); // sets the current modal page
+    // const [loading, setLoading] = useState(false);
+
     async function getEgnyteServiceData(){
         const res = await fetch('http://localhost:8081/api/v1/services/egnyte')
         const req = await res.json()
@@ -12,7 +17,18 @@ export default function EgnyteService(){
      console.log(egnyte)
     useEffect(() => {
         getEgnyteServiceData()
-    }, [])
+
+    }, []);
+
+    // gets the current service data
+    const indexOfLastData = currentModalPage * dataPerPage;
+    const indexOfFirstData = indexOfLastData - dataPerPage;
+    const currentData = egnyte.slice(indexOfFirstData, indexOfLastData);
+
+    // change the modal page
+    const paginateModalFront = () => setCurrentModalPage(currentModalPage + 1);
+    const paginateModalBack = () => setCurrentModalPage(currentModalPage - 1);
+
     return (
         <div className="flex flex-col">
             <div className="overflow-y-auto">
@@ -55,6 +71,13 @@ export default function EgnyteService(){
                                    })}
                                 </tbody>
                             </table>
+                            <ModalPagination
+                                dataPerPage={dataPerPage}
+                                totalData={egnyte.length}
+                                paginateModalBack={paginateModalBack}
+                                paginateModalFront={paginateModalFront}
+                                currentData={currentData}
+                            />
                         </div>
                     </div>
                 </div>
@@ -63,7 +86,7 @@ export default function EgnyteService(){
     )
 }
 
-// todo: add pagination
+
 // todo: apply filter if applicable
 // todo: apply search if applicable
 // todo: optimize view port to show recent pulls first
