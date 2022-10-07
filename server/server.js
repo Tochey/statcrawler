@@ -11,15 +11,18 @@ const client = require("./config/redis.config");
 const { generateAccessToken } = require("./utilities/tokenGeneration");
 require('dotenv').config();
 
+//port address
 const PORT = 8081
 
 app.use(cors({
   origin: '*'
 }))
 
+//db connection
 dbConnection()
 
 app.use(express.json())
+
 app.use('/api/v1/user', registerRoute)
 app.use('/api/v1/user', loginRoute)
 app.use('/api/v1/services', serviceRouter)
@@ -28,6 +31,7 @@ app.delete('/logout', async (req, res) => {
 await client.del(req.body.email)  
 res.sendStatus(204)
 })
+
 
 app.post('/token', async (req, res) => {
   const { email, token } = req.body
@@ -45,11 +49,6 @@ app.post('/token', async (req, res) => {
   })
 }
 )
-
-app.get("/", async (req, res) => {
-  res.end()
-});
-
 
 app.listen(PORT, () => {
   console.log(`server is listening on port ${PORT}`);
