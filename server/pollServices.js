@@ -1,4 +1,4 @@
-const client = require('./config/redis.config')
+const client = require('./config/redis.config');
 const NetworkDaemon = require("./NetworkDaemon");
 const network = new NetworkDaemon(100);
 
