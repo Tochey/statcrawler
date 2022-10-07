@@ -13,7 +13,7 @@ export default function GotoAssistData(){
     async function getGotoAssistData(){
         try{
         const res = await fetch('http://localhost:8081/api/v1/services/goToAssist')
-        const req = res.json()
+        const req =  await res.json()
         setGotoAssist(req.incidents);
         setPaginatedData([...req.incidents.slice(0, dataPerPage)]);
         } catch (error) {
@@ -25,6 +25,8 @@ export default function GotoAssistData(){
         console.log('working')
         getGotoAssistData()
     }, []);
+
+console.log(gotoAssist)
 
     const paginate = (modalNumber) => {
         const indexOfLastData = modalNumber * dataPerPage;
@@ -77,7 +79,7 @@ export default function GotoAssistData(){
                                                         {incident.date}
                                                     </td>
                                                     <td className='px-4 py-3 text-sm text-gray-500 whitespace-nowrap'>
-                                                        {incident.date}
+                                                        {incident.name}
                                                     </td>
                                                 </tr>
                                             )
