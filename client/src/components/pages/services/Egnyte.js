@@ -9,7 +9,6 @@ export default function EgnyteService() {
   const [dataPerPage] = useState(10); // sets the service data per page
   const [currentModalPage, setCurrentModalPage] = useState(1); // sets the current modal page
 
-  // const [loading, setLoading] = useState(false);
   const [paginatedData, setPaginatedData] = useState([]);
 
   async function getEgnyteServiceData() {
@@ -25,7 +24,7 @@ export default function EgnyteService() {
   }
   // console.log(egnyte)
   useEffect(() => {
-    console.log('called');
+    // console.log('called');
     getEgnyteServiceData();
   }, []);
 
