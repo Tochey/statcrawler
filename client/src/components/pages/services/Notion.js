@@ -71,7 +71,7 @@ export default function NotionService(){
                             </table>
                             <ModalPagination
                                 dataPerPage={dataPerPage}
-                                // totalData={gotoAssist.length}
+                                totalData={notion.length}
                                 currentModalPage={currentModalPage}
                                 paginate={paginate}
                             />
