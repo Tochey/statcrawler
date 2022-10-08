@@ -26,8 +26,6 @@ export default function GotoAssistData(){
         getGotoAssistData()
     }, []);
 
-console.log(gotoAssist)
-
     const paginate = (modalNumber) => {
         const indexOfLastData = modalNumber * dataPerPage;
         const indexOfFirstData = indexOfLastData - dataPerPage;
