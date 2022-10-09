@@ -3,13 +3,7 @@ import Service from "./../services/Service";
 
 export default function ServiceModal({ serviceName, ...v }) {
   const [modalOpen, setModalOpen] = useState(false);
-  /* if (
-    !tableConfig?.identifier &&
-    !tableConfig?.label &&
-    !tableConfig?.dataKey
-  ) {
-    throw new Error("Table config require identifier, label and dataKey");
-  } */
+  
   return (
     <div>
       <button
