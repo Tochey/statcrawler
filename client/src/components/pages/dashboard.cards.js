@@ -23,7 +23,3 @@ const DashboardCard = ({ logo, status, recentEvent, modal, ...v }) => {
 };
 
 export default DashboardCard;
-/*
-todo: code logic to display colors red/yellow/green depends on current service stats
-
-*/
