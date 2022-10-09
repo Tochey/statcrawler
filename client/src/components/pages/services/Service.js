@@ -91,5 +91,3 @@ export default function Service({ serviceEndpoint, tableConfig }) {
     </div>
   );
 }
-
-// todo: apply search
