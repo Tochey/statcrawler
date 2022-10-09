@@ -1,13 +1,4 @@
-list of services data, have to download the logo
+implement:-
 
-Slack
-Egnyte
-Google cloud
+GoToAssist (api route not working)
 Zoom
-GoToAssist
-Notion
-logmeinremotesupport
-jamf
-
-
-Ideea around the application, the

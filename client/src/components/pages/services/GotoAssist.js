@@ -20,13 +20,11 @@ export default function GotoAssistData(){
             alert(error?.message || error);
         }
     }
-    console.log(gotoAssist)
+    // console.log(gotoAssist)
     useEffect(() => {
-        console.log('working')
+        // console.log('working')
         getGotoAssistData()
     }, []);
-
-console.log(gotoAssist)
 
     const paginate = (modalNumber) => {
         const indexOfLastData = modalNumber * dataPerPage;

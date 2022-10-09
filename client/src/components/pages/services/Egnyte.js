@@ -8,12 +8,10 @@ export default function EgnyteService() {
   const [egnyte, setEgnyte] = useState([]);
   const [dataPerPage] = useState(10); // sets the service data per page
   const [currentModalPage, setCurrentModalPage] = useState(1); // sets the current modal page
-
   const [paginatedData, setPaginatedData] = useState([]);
 
   async function getEgnyteServiceData() {
     try {
-        // console.log('nihere')
       const res = await fetch("http://localhost:8081/api/v1/services/egnyte");
       const req = await res.json();
       setEgnyte(req.incidents);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-// import JamfData from "../services/Jamf";
+import JamfData from "../services/Jamf";
 
-// carries the parent modal properties
+
 export default function JamfModal() {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -22,10 +22,10 @@ export default function JamfModal() {
             <div className="w-7/12 bg-white rounded-md my-[80px] mx-auto">
              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="mt-6 h-5 flex justify-center items-center border-slate-200 rounded-t">
-                  <h3 className="text-lg font-semibold"> Egnyte Service Status </h3>
+                  <h3 className="text-lg font-semibold"> Jamf Service Status </h3>
                 </div>
                 <div className="w-full leading-relaxed">
-                
+                  <JamfData/>
                 </div> 
                 <div className="flex items-center justify-end p-2 border-t border-solid border-slate-200 rounded-b">
                   <button
@@ -44,3 +44,5 @@ export default function JamfModal() {
     </div>
   );
 }
+
+// todo: add jamf logo

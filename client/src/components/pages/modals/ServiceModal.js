@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import NotionService from "../services/Notion";
+import Service from "./../services/Service";
 
-// carries the parent modal properties
-export default function NotionModal() {
+export default function ServiceModal({ serviceName, ...v }) {
   const [modalOpen, setModalOpen] = useState(false);
-
+  
   return (
     <div>
       <button
@@ -20,13 +19,16 @@ export default function NotionModal() {
           {/* the modal box */}
           <div className="w-screen overflow-auto py-[-30px] fixed inset-0 z-50 bg-black/50">
             <div className="w-7/12 bg-white rounded-md my-[80px] mx-auto">
-             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="mt-6 h-5 flex justify-center items-center border-slate-200 rounded-t">
-                  <h3 className="text-lg font-semibold"> Notion Service Status </h3>
+                  <h3 className="text-lg font-semibold">
+                    {" "}
+                    {serviceName} Service Status{" "}
+                  </h3>
                 </div>
                 <div className="w-full leading-relaxed">
-                  <NotionService/>
-                </div> 
+                  <Service {...v} />
+                </div>
                 <div className="flex items-center justify-end p-2 border-t border-solid border-slate-200 rounded-b">
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none ease-linear transition-all duration-150"
@@ -36,7 +38,7 @@ export default function NotionModal() {
                     Close
                   </button>
                 </div>
-              </div> 
+              </div>
             </div>
           </div>
         </>

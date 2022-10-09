@@ -19,7 +19,7 @@ export default function ZoomData(){
             alert(error?.message || error)
         }
     }
-       console.log(zoom)
+       // console.log(zoom)
     useEffect(() => {
         getZoomData()
     }, [])
