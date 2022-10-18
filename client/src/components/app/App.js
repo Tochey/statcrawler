@@ -6,6 +6,7 @@ import Dashboard from '../pages/Dashboard'
 import Login from '../pages/users.login'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "../layouts/layout";
+import EmailVerificationPage from "../pages/emailVerify";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/signup" element={<Signup/>}  />
+          <Route exact path="/user/:id/verify/:token" element={<EmailVerificationPage/>}  />
         </Routes>
         </Layout>
       </Router>
