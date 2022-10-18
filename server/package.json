@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon server.js",
-    "aws" : "node aws-test.js"
+    "aws": "node aws-test.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,7 @@
     "joi-password-complexity": "^5.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.0",
+    "nodemailer": "^6.8.0",
     "redis": "^4.2.0",
     "uuid": "^8.3.2"
   },
