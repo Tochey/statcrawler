@@ -9,13 +9,7 @@ import Slack from "../pages/assets/images/slack.png";
 import DashboardCard from "./dashboard.cards";
 import Google_Cloud from "../pages/assets/images/google-cloud.png";
 import getUserInfo from "../../utilities/decodeJwt";
-// import EgnyteModal from "./modals/EgnyteModal";
-// import OfficeModal from "./modals/OfficeModal";
-// import JamfModal from "./modals/JamfModal";
-// import NotionModal from "./modals/NotionModal";
-// import SlackModal from "./modals/slackModal";
-//import ZoomModal from "./modals/ZoomModal";
-// import GotoModal from "./modals/GotoModal";
+
 
 const serviceCards = [
   {

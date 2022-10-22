@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate} from "react-router-dom";
+// import { useNavigate} from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function Register() {
@@ -12,7 +12,8 @@ export default function Register() {
   });
 
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+  const [emailMessage, setEmailMessage] = useState("");
+  // const navigate = useNavigate();
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -24,7 +25,8 @@ export default function Register() {
       const url = "http://localhost:8081/api/v1/user/signup";
       // eslint-disable-next-line no-unused-vars
       const { data: res } = await axios.post(url, data);
-      navigate("/login");
+      setEmailMessage(res.message)
+      // navigate("/login");
     } catch (error) {
       if (
         error.response &&
@@ -139,9 +141,11 @@ export default function Register() {
                     remind me
                   </label>
                 </div>
+                <div className="mt-2 text-[12px]">{error}</div>
+                <div className="text-[12px]">{emailMessage}</div>
                 <button
                   type="submit"
-                  className="text-white mt-4 bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-[225px] py-2.5 text-center"
+                  className="text-white mt-6 bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-[12px] sm:w-auto px-[225px] py-3 text-center"
                 >
                   sign up
                 </button>
